@@ -40,7 +40,9 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent item={content.at(activeTab)} /> //Same as: <<TabContent item={content[activeTab]}//
+        <TabContent 
+          item={content.at(activeTab)} //Same as: <<TabContent item={content[activeTab]}//
+          key={content.at(activeTab).summary}/> 
       ) : (
         <DifferentContent />
       )}
@@ -59,7 +61,7 @@ function Tab({ num, activeTab, onClick }) {
   );
 }
 
-function TabContent({ item }) {
+function  TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
 
